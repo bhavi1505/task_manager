@@ -1,0 +1,22 @@
+<form method="POST">
+    <h2>Create Task</h2>
+
+    <input name="title" placeholder="Title"><br>
+    <input name="description" placeholder="Description"><br>
+
+    <select name="assigned_to">
+        {% for u in users %}
+        <option value="{{u[0]}}">{{u[1]}}</option>
+        {% endfor %}
+    </select><br>
+
+    <select name="project_id">
+        {% for p in projects %}
+        <option value="{{p[0]}}">{{p[1]}}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="date" name="deadline"><br>
+
+    <button>Create</button>
+</form>

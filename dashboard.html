@@ -1,0 +1,24 @@
+<h2>Dashboard</h2>
+
+<p>Total: {{total}} | Completed: {{completed}} | Pending: {{pending}}</p>
+
+{% if role == "Admin" %}
+<a href="/create_project">Create Project</a>
+<a href="/create_task">Create Task</a>
+{% endif %}
+
+<a href="/logout">Logout</a>
+
+<hr>
+
+{% for task in tasks %}
+<div class="card">
+    <h3>{{task[1]}}</h3>
+    <p>{{task[2]}}</p>
+    <p>Status: {{task[6]}}</p>
+
+    {% if task[6] != "Completed" %}
+    <a href="/update_status/{{task[0]}}">Mark Completed</a>
+    {% endif %}
+</div>
+{% endfor %}
