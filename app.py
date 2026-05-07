@@ -48,7 +48,8 @@ def init_db():
     conn.commit()
     conn.close()
 
-init_db()
+if not os.path.exists(DATABASE):
+    init_db()
 
 # ---------------- LOGIN ----------------
 @app.route("/", methods=["GET", "POST"])
